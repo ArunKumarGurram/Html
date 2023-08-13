@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Profit Calulation</title>
+</head>
+<style type="text/css">
+
+*{
+
+   margin:0;
+   pqdding:0;
+}
+
+h1{
+  text-align:center;
+  font-family: cursive;
+  font-style:italic;
+  font-weight:bold;
+  color: blue;
+  margin-top: 5%;
+  font-size:50px;
+}
+
+#inps{
+  display:grid;
+  aligin-items: center;
+  margin-top:10%;
+}
+
+#cp, #ep, #mi {
+   width: 100px;
+   height: 35px;
+   margin:2% auto;
+   border:2px solid black;
+   border-radius:5px;
+}
+#btn{
+   width:100px;
+   height:25px;
+   margin:3% auto;
+   font-size:18px;
+   font-style:italic;
+   background-color: ;
+}
+#cp:hover{
+   border:2px solid green;
+}
+
+#per{
+   display:;
+   aligin-items:;
+   margin-top:10%;
+   text-aligin: center;
+   margin-left: 20%;
+}
+
+label{
+  
+  font-size : 20px;
+  font-weight:bold;
+  margin:;
+}
+
+#rp, #rm {
+  color : green;
+}
+</style>
+<body>
+    <h1> Profit Calculator</h1>
+    <div id="inps">
+      <input type="number" id="cp" placeholder="Buy Price">
+      <input type="number" id="ep" placeholder="Sell Price">
+      <input type="number" id="mi" placeholder="Money Invested">
+      <button id="btn" onclick="calc()"> Calculate</button>
+    </div>
+    
+    <div id="per"> 
+      <label>Return (%)   :  <label id="rp"></label> </label><br><br>
+      <label> Profit Money: <label id="rm"></label>  </label>
+    </div>
+    
+    <div id="audio">
+
+<!--The controles of the audio tag 
+will only seen when we mention "controls"
+in the audio tag at end. -->
+
+      <audio id="cheer" src="HTML/yay.mp3"></audio>
+      <audio id="nocheer" src="HTML/disappointed.mp3" ></audio>
+    </div>
+    
+    <script type="text/javascript">
+    
+    let cp = document.querySelector('#cp');
+    let ep = document.querySelector('#ep');
+    let mi = document.querySelector('#mi');
+    
+    let rp = document.querySelector('#rp');
+    let rm = document.querySelector('#rm');
+    
+      let calc = () =>{
+        // let pm = ((ep.value/100) - (cp.value/100))*100;
+         let pm = ep.value-cp.value;
+         let pp = (pm/cp.value)*100;
+         let imp = (mi.value/100)*pp;
+         
+         rp.innerHTML = `${pp.toFixed(4)} %`
+         rm.innerHTML = `${imp.toFixed(3)} `
+         
+         if(pp <=0){
+           // alert()
+           
+            rm.style.color = "red";
+            rp.style.color = "red"
+            document.querySelector("#nocheer").play();k
+            0
+            setTimeout(() => {
+               document.querySelector("#nocheer").pause();
+            },2000)
+            
+         }
+         else{
+         
+           document.querySelector("#cheer").play();
+           
+           rm.style.color = "green";
+           rp.style.color = "green"
+           setTimeout(() => {
+           document.querySelector("#cheer").pause();
+           },2000)
+         }
+         
+       // alert(mi)
+      }
+    
+    </script>
+</body>
